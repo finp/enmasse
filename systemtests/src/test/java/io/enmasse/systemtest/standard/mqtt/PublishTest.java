@@ -9,6 +9,7 @@ import io.enmasse.address.model.*;
 import io.enmasse.systemtest.AddressSpaceType;
 import io.enmasse.systemtest.*;
 import io.enmasse.systemtest.ability.ITestBaseStandard;
+import io.enmasse.systemtest.ability.ITestBaseWithMqtt;
 import io.enmasse.systemtest.amqp.AmqpClient;
 import io.enmasse.systemtest.bases.TestBaseWithShared;
 import io.enmasse.systemtest.mqtt.MqttClientFactory;
@@ -38,7 +39,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * Tests related to publish messages via MQTT
  */
-public class PublishTest extends TestBaseWithShared implements ITestBaseStandard {
+public class PublishTest extends TestBaseWithShared implements ITestBaseWithMqtt {
     private static final String MYTOPIC = "mytopic";
     private static final Logger log = CustomLogger.getLogger();
 

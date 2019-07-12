@@ -10,15 +10,15 @@ import io.enmasse.systemtest.Kubernetes;
 import io.enmasse.systemtest.cmdclients.KubeCMDClient;
 import io.fabric8.kubernetes.api.model.Container;
 import io.fabric8.kubernetes.api.model.Pod;
+import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
+import org.junit.jupiter.api.extension.BeforeTestExecutionCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.LifecycleMethodExecutionExceptionHandler;
 import org.junit.jupiter.api.extension.TestExecutionExceptionHandler;
 import org.slf4j.Logger;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -26,8 +26,18 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class TestWatcher implements TestExecutionExceptionHandler, LifecycleMethodExecutionExceptionHandler {
+public class TestWatcher implements TestExecutionExceptionHandler, LifecycleMethodExecutionExceptionHandler, BeforeTestExecutionCallback, AfterTestExecutionCallback {
     private static final Logger log = CustomLogger.getLogger();
+
+    @Override
+    public void afterTestExecution(ExtensionContext extensionContext) throws Exception {
+        SharedAddressSpaceManager.getInstance().deleteSharedAddressSpace();
+    }
+
+    @Override
+    public void beforeTestExecution(ExtensionContext extensionContext) throws Exception {
+        SharedAddressSpaceManager.getInstance().setActualTest(extensionContext);
+    }
 
     @Override
     public void handleTestExecutionException(ExtensionContext context, Throwable throwable) throws Throwable {
