@@ -75,6 +75,7 @@ public class SharedAddressSpaceManager {
                 GlobalLogCollector logCollector = new GlobalLogCollector(kube, new File(env.testLogDir()));
                 try {
                     AddressSpaceUtils.deleteAddressSpaceAndWait(actualAddressSpace, logCollector);
+                    actualAddressSpace = null;
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
