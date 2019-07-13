@@ -1,0 +1,9 @@
+include::_partials/common/attributes.adoc[]
+
+:context:
+
+= EnMasse Docs
+
+See https://enmasse.io/documentation/master/openshift/ for the original docs.
+
+or stay on the Integreatly site and browse xref:master-openshift.adoc[Using EnMasse]

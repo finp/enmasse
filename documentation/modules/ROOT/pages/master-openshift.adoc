@@ -1,0 +1,52 @@
+
+include::{partialsdir}/common/attributes.adoc[]
+
+:BookNameUrl: /openshift/
+
+:parent-context: messaging
+:context: messaging
+:imagesdir: ../openshift/images
+:cmdcli: oc
+:KubePlatform: OpenShift
+:OperatorNamespace: openshift-operators
+:OperatorMarketplaceNamespace: openshift-marketplace
+
+= Documentation for {ProductName} on OpenShift
+
+Welcome to the {ProductName} documentation, where you can find information to help you learn about
+{ProductName} and start exploring its features.
+
+From getting started to trying out more advanced installation and configuration, these resources provide
+what you need to set up and manage {ProductName} as a service administrator or a messaging tenant.
+
+include::{partialsdir}/common/overview.adoc[leveloffset=+1]
+
+include::{partialsdir}/assemblies/assembly-getting-started.adoc[leveloffset=+1]
+
+include::{partialsdir}/assemblies/assembly-service-admin-guide.adoc[leveloffset=+1]
+
+include::{partialsdir}/assemblies/assembly-tenant-guide.adoc[leveloffset=+1]
+
+include::{partialsdir}/assemblies/assembly-iot-guide.adoc[leveloffset=+1]
+
+[appendix]
+include::{partialsdir}/modules/ref-resources-table-service-admin.adoc[leveloffset=+1]
+
+[appendix]
+include::{partialsdir}/modules/ref-resources-table-messaging-tenant.adoc[leveloffset=+1]
+
+[appendix]
+include::{partialsdir}/modules/ref-brokered-infra-config-fields.adoc[leveloffset=+1]
+
+[appendix]
+include::{partialsdir}/modules/ref-standard-infra-config-fields.adoc[leveloffset=+1]
+
+[appendix]
+
+== REST API reference
+
+include::{partialsdir}/common/restapi-reference.adoc[leveloffset=+2]
+
+// Revision information
+//include::{partialsdir}/common/revision-info.adoc[]
+
